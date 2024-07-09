@@ -18,7 +18,6 @@ export default function Technologies() {
         <div className="   w-4/5  md:w-1/4">
           <TechCard />
         </div>
-       
       </div>
     </div>
   );
