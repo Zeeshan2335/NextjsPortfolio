@@ -10,7 +10,7 @@ export const contactInputs = [
     type: "text",
     name: "fullName",
     id: "1",
-    className: "m-1 p-2",
+    className: " p-2",
     placeholder: "Full Name",
   },
   {
@@ -18,7 +18,7 @@ export const contactInputs = [
     type: "email",
     name: "email",
     id: "",
-    className: "m-1 p-2",
+    className: "mt-3 p-2",
     placeholder: "Email I'd",
   },
   {
@@ -26,7 +26,7 @@ export const contactInputs = [
     type: "number",
     name: "mobile",
     id: "3",
-    className: "m-1  p-2",
+    className: "mt-3  p-2",
     placeholder: "Mobile No",
   },
   {
@@ -34,7 +34,7 @@ export const contactInputs = [
     type: "text",
     name: "message",
     id: "4",
-    className: "m-1 p-2",
+    className: "mt-3 p-2 h-48",
     placeholder: "Enter Message",
   },
 ];

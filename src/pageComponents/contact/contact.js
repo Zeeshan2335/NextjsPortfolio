@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
+
 import { contactDetail, contactInputs } from "./constant";
+import axios from "axios";
 
 export default function ContectComponent() {
   const [data, setData] = useState({
@@ -9,7 +11,25 @@ export default function ContectComponent() {
     mobile: "",
     message: "",
   });
-  console.log(data);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("https://formspree.io/f/mdknkkga", data);
+      // Clear form data upon successful submission
+      setData({
+        fullName: "",
+        email: "",
+        mobile: "",
+        message: "",
+      });
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit form. Please try again.");
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -52,11 +72,15 @@ export default function ContectComponent() {
 
   return (
     <>
-      <p className="text-center text-2xl p-2" > Contact</p>
+      <p className="text-center text-2xl p-2"> Contact</p>
       <div className="min-h-screen  md:flex">
-        <div className=" w-full flex flex-col md:w-1/2 p-2">
+        <form
+          onSubmit={handleSubmit}
+          className=" w-full flex flex-col md:w-1/2 p-2"
+        >
           {contactInputs?.map((input, index) => handleInputs(input, index))}
-        </div>
+          <button type="submit" className="w-full bg-blue-700 py-2 rounded-sm mt-3 " >Submit</button>
+        </form>
         <div className=" w-full md:w-1/2">
           {contactDetail?.map((item, index) => (
             <>
